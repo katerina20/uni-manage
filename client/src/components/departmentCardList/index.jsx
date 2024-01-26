@@ -7,6 +7,7 @@ import {LoadingSpinner} from "../loadingSpinner";
 export const DepartmentCardList = () => {
     const [departments, setDepartments] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const fetchData = useCallback(() => {
         setIsLoading(true);
@@ -17,7 +18,7 @@ export const DepartmentCardList = () => {
             })
             .catch(error => {
                 setIsLoading(true);
-                throw new Error(error.message);
+                setErrorMessage(error.message);
         });
     }, [])
 
@@ -33,16 +34,17 @@ export const DepartmentCardList = () => {
             })
             .catch(error => {
                 setIsLoading(false);
-                throw new Error('Error changing lector name:' + error.message);
+                setErrorMessage(error.message);
             });
     };
 
     return (
         <div className="department-container">
             {isLoading && <LoadingSpinner />}
+            {errorMessage && <div className="error">{errorMessage}</div>}
             {departments.map(department => (
                 <DepartmentCard
-                    key={department.id}
+                    key={department.id + Math.random()}
                     department={department}
                     updateLectorName={updateLectorName} />
             ))}
