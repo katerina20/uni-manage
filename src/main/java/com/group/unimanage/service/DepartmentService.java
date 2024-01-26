@@ -21,7 +21,7 @@ public class DepartmentService {
 
     @Transactional(readOnly = true)
     public Map<String, Integer> getDepartmentStatistics(String departmentId) {
-        log.info("Getting department statistics for department: {}", departmentId);
+        log.info("Getting department statistics for department with ID: {}", departmentId);
         Map<String, Integer> statistics = new HashMap<>();
         Department department = departmentRepository.findById(departmentId).orElseThrow(
             () -> new NotFoundException("Department not found with ID: " + departmentId)
