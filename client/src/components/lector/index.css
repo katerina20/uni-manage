@@ -1,0 +1,35 @@
+.block {
+    margin-bottom: 12px;
+}
+
+.name {
+    display: flex;
+    justify-content: space-between;
+    min-height: 28px;
+    gap: 12px;
+}
+
+.degree {
+    color: #a0a0a0;
+    font-size: 12px;
+}
+
+.input {
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #4133B7;
+    margin-bottom: 8px;
+    outline: none;
+}
+
+.button {
+    background: none;
+    border: none;
+}
+.button:hover {
+    cursor: pointer;
+}
+
+.but-gap {
+    width: 30px;
+}

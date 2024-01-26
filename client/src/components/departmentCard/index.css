@@ -1,0 +1,28 @@
+.department-card {
+    border-radius: 10px;
+    box-shadow: 0 30px 30px -25px rgba(65, 51, 183, 0.25);
+    max-width: 320px;
+    background-color: #ffff;
+    padding: 1.5rem;
+}
+
+@media screen and (max-width: 600px) {
+    .department-container {
+        justify-content: center;
+    }
+}
+
+.title {
+    padding-left: 6px;
+    border-left: 3px solid #4133B7;
+    font-size: 1.5rem;
+    color: #141b22;
+    line-height: 1.25;
+    font-weight: 400;
+    margin: 0 0 1rem 0;
+}
+
+.divider {
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
