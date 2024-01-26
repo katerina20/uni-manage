@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -17,6 +18,12 @@ public class DepartmentService {
 
     public DepartmentService(DepartmentRepository departmentRepository) {
         this.departmentRepository = departmentRepository;
+    }
+
+    @Transactional(readOnly = true)
+    public List<Department> getDepartments() {
+        log.info("Getting all departments");
+        return departmentRepository.findAll();
     }
 
     @Transactional(readOnly = true)

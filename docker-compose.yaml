@@ -1,6 +1,6 @@
 version: '3.3'
 services:
-  backend:
+  server:
     build: .
     ports:
       - "8080:8080"
@@ -19,3 +19,11 @@ services:
       - "27017:27017"
     volumes:
       - ./src/main/resources/initData.js:/docker-entrypoint-initdb.d/initData.js
+#  client:
+#    build:
+#      context: ./client
+#      dockerfile: Dockerfile
+#    ports:
+#      - "3000:3000"
+#    depends_on:
+#      - server

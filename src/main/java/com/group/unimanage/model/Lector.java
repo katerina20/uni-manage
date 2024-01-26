@@ -1,8 +1,8 @@
 package com.group.unimanage.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonValue;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
@@ -20,12 +20,21 @@ public class Lector {
     private String name;
     private Degree degree;
 
+    @JsonIgnore
     @DocumentReference(lazy=true)
     private Set<Department> departments;
 
+    @AllArgsConstructor
     public enum Degree {
-        ASSISTANT,
-        ASSOCIATE_PROFESSOR,
-        PROFESSOR
+        ASSISTANT ("Assistant"),
+        ASSOCIATE_PROFESSOR ("Associate Professor"),
+        PROFESSOR ("Professor");
+
+        private final String value;
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 }
