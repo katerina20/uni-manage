@@ -1,5 +1,6 @@
 package com.group.unimanage.service;
 
+import com.group.unimanage.exception.NotFoundException;
 import com.group.unimanage.model.Department;
 import com.group.unimanage.repository.DepartmentRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +24,7 @@ public class DepartmentService {
         log.info("Getting department statistics for department: {}", departmentId);
         Map<String, Integer> statistics = new HashMap<>();
         Department department = departmentRepository.findById(departmentId).orElseThrow(
-            () -> new RuntimeException("Department not found")
+            () -> new NotFoundException("Department not found with ID: " + departmentId)
         );
 
         statistics.put("ASSISTANT", 0);
