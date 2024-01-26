@@ -30,6 +30,18 @@ public class LectorService {
     }
 
     @Transactional
+    public boolean changeLectorName(String lectorId, String newName) {
+        log.info("Changing name to {} for lector with ID: {}", newName, lectorId);
+        return lectorRepository.findById(lectorId)
+            .map(lector -> {
+                lector.setName(newName);
+                lectorRepository.save(lector);
+                log.info("Lector name changed for id: {}", lectorId);
+                return true;
+            }).orElse(false);
+    }
+
+    @Transactional
     public boolean promoteLector(String lectorId) {
         log.info("Promoting lector with ID: {}", lectorId);
         Lector lector = lectorRepository.findById(lectorId)
