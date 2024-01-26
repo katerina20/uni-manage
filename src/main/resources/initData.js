@@ -46,7 +46,7 @@ db.departments.updateOne(
 
 db.departments.updateOne(
     { _id: dept3Id },
-    { $addToSet: { lectors: { $each: [lector7Id, lector8Id, lector9Id, lector4Id, lector6Id] } } }
+    { $addToSet: { lectors: { $each: [lector7Id, lector8Id, lector9Id, lector4Id, lector6Id, lector2Id, lector1Id] } } }
 );
 
 db.departments.updateOne(

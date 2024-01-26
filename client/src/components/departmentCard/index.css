@@ -26,16 +26,16 @@
     overflow: auto;
 }
 
-::-webkit-scrollbar {
+.list::-webkit-scrollbar {
     width: 6px;
 }
 
-::-webkit-scrollbar-track {
+.list::-webkit-scrollbar-track {
     background-color: #f1f1f1;
     border-radius: 6px;
 }
 
-::-webkit-scrollbar-thumb {
+.list::-webkit-scrollbar-thumb {
     background-color: #a69fd6;
     border-radius: 6px;
 }
