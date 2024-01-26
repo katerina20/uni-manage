@@ -38,7 +38,7 @@ class LectorSearchControllerTest {
         List<String> lectors = Arrays.asList("Yaroslav Ivanenko", "Sergii Prokopenko", "Yuliya Shevchen");
         given(lectorService.searchLectors("ko")).willReturn(lectors);
 
-        mockMvc.perform(get("/search")
+        mockMvc.perform(get("/search/")
                 .param("query", "ko")
                 .contentType(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
