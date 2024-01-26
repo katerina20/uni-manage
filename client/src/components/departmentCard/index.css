@@ -1,7 +1,7 @@
 .department-card {
     border-radius: 10px;
     box-shadow: 0 30px 30px -25px rgba(65, 51, 183, 0.25);
-    max-width: 320px;
+    width: 266px;
     background-color: #ffff;
     padding: 1.5rem;
 }
@@ -22,7 +22,7 @@
 }
 
 .list {
-    max-height: 250px;
+    height: 176px;
     overflow: auto;
 }
 

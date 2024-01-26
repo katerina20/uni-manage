@@ -1,0 +1,10 @@
+.error-container {
+    position: fixed;
+    top: 16px;
+    right: 20px;
+    background: #FBC8BE;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-size: 16px;
+    color: #832d25;
+}

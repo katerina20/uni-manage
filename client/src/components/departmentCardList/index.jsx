@@ -3,6 +3,7 @@ import './index.css'
 import axios from 'axios';
 import {DepartmentCard} from '../departmentCard';
 import {LoadingSpinner} from "../loadingSpinner";
+import {ErrorStatus} from "../errorStatus";
 
 export const DepartmentCardList = () => {
     const [departments, setDepartments] = useState([]);
@@ -20,11 +21,19 @@ export const DepartmentCardList = () => {
                 setIsLoading(true);
                 setErrorMessage(error.message);
         });
-    }, [])
+    }, []);
 
     useEffect(() => {
         fetchData();
     }, [fetchData]);
+
+    useEffect(() => {
+        const timer = setTimeout(function () {
+            setErrorMessage('');
+        }, 4000);
+
+        return () => clearTimeout(timer);
+    }, [errorMessage]);
 
     const updateLectorName = (lectorId, newName) => {
         setIsLoading(true);
@@ -41,10 +50,10 @@ export const DepartmentCardList = () => {
     return (
         <div className="department-container">
             {isLoading && <LoadingSpinner />}
-            {errorMessage && <div className="error">{errorMessage}</div>}
+            {errorMessage && <ErrorStatus message={errorMessage} />}
             {departments.map(department => (
                 <DepartmentCard
-                    key={department.id + Math.random()}
+                    key={department.id}
                     department={department}
                     updateLectorName={updateLectorName} />
             ))}

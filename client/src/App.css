@@ -1,7 +1,8 @@
 .app {
-    margin: 48px 10vh 0 10vh;
+    margin: 30px 10vh 0 10vh;
 }
 .main-title {
+    margin-bottom: 50px;
     text-align: center;
     font-weight: 400;
 }

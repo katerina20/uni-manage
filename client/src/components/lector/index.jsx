@@ -32,7 +32,7 @@ export const Lector = ({ lector, updateLectorName }) => {
                         </>
                     ) : (
                         <div className="name">
-                            {name}
+                            {lector.name}
                             <div>
                             {onMouse ? (
                                 <button className="button" onClick={() => setIsEditing(true)}>
