@@ -11,7 +11,7 @@ import java.util.Set;
 public class Department {
 
     @Id
-    private Long id;
+    private String id;
     private String name;
     private Set<Lector> lectors;
 }

@@ -11,7 +11,7 @@ import java.util.Set;
 public class Lector {
 
     @Id
-    private Long id;
+    private String id;
     private String name;
     private Degree degree;
     private Set<Department> departments;
