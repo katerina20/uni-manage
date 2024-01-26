@@ -11,15 +11,15 @@ var lector8Id = ObjectId();
 var lector9Id = ObjectId();
 
 db.lectors.insertMany([
-    { _id: lector1Id, name: "Olga Tokar", degree: "PROFESSOR", departments: [] },
-    { _id: lector2Id, name: "Sergii Prokopenko", degree: "ASSOCIATE_PROFESSOR", departments: [] },
-    { _id: lector3Id, name: "Svitlana Kolisnechenko", degree: "ASSISTANT", departments: [] },
-    { _id: lector4Id, name: "Yaroslav Ivanenko", degree: "ASSISTANT", departments: [] },
-    { _id: lector5Id, name: "Denys Tkachenko", degree: "ASSOCIATE_PROFESSOR", departments: [] },
-    { _id: lector6Id, name: "Yuliya Shevchenko", degree: "ASSOCIATE_PROFESSOR", departments: [] },
-    { _id: lector7Id, name: "Pavlo Mykhailenko", degree: "PROFESSOR", departments: [] },
-    { _id: lector8Id, name: "Oleksandr Zhytomyrsky", degree: "PROFESSOR", departments: [] },
-    { _id: lector9Id, name: "Andrii Kovalchuk", degree: "ASSISTANT", departments: [] }
+    { _id: lector1Id, name: "Olga Tokar", degree: "PROFESSOR" },
+    { _id: lector2Id, name: "Sergii Prokopenko", degree: "ASSOCIATE_PROFESSOR" },
+    { _id: lector3Id, name: "Svitlana Kolisnechenko", degree: "ASSISTANT" },
+    { _id: lector4Id, name: "Yaroslav Ivanenko", degree: "ASSISTANT" },
+    { _id: lector5Id, name: "Denys Tkachenko", degree: "ASSOCIATE_PROFESSOR" },
+    { _id: lector6Id, name: "Yuliya Shevchenko", degree: "ASSOCIATE_PROFESSOR" },
+    { _id: lector7Id, name: "Pavlo Mykhailenko", degree: "PROFESSOR" },
+    { _id: lector8Id, name: "Oleksandr Zhytomyrsky", degree: "PROFESSOR" },
+    { _id: lector9Id, name: "Andrii Kovalchuk", degree: "ASSISTANT" }
 ]);
 
 var dept1Id = ObjectId();
