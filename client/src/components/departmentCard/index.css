@@ -6,12 +6,6 @@
     padding: 1.5rem;
 }
 
-@media screen and (max-width: 600px) {
-    .department-container {
-        justify-content: center;
-    }
-}
-
 .title {
     padding-left: 6px;
     border-left: 3px solid #4133B7;
@@ -25,4 +19,23 @@
 .divider {
     border-top: 1px solid #ccc;
     margin: 10px 0;
+}
+
+.list {
+    max-height: 250px;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #a69fd6;
+    border-radius: 6px;
 }

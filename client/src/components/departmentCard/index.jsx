@@ -7,9 +7,11 @@ export const DepartmentCard = ({department, updateLectorName}) => {
         <div className="department-card">
             <h2 className="title">{department.name}</h2>
             <div className="divider"></div>
-            {department.lectors.map(lector=> (
-                <Lector key={lector.id} lector={lector} updateLectorName={updateLectorName} />
-            ))}
+            <div className="list">
+                {department.lectors.map(lector=> (
+                    <Lector key={lector.id + department.id} lector={lector} updateLectorName={updateLectorName} />
+                ))}
+            </div>
         </div>
     )
 }

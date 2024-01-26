@@ -1,0 +1,27 @@
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.spinner-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5); /* Полупрозрачный белый фон */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-top: 4px solid #a69fd6;
+    border-radius: 50%;
+    animation: spinner 1.5s linear infinite;
+}

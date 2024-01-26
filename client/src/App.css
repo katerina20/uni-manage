@@ -1,3 +1,7 @@
+.app {
+    margin: 48px 10vh 0 10vh;
+}
 .main-title {
     text-align: center;
+    font-weight: 400;
 }

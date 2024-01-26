@@ -1,69 +1,45 @@
-import React, { useState } from "react"
+import React, {useState, useEffect, useCallback} from "react"
 import './index.css'
+import axios from 'axios';
 import {DepartmentCard} from '../departmentCard';
+import {LoadingSpinner} from "../loadingSpinner";
 
 export const DepartmentCardList = () => {
-    const [departments, setDepartments] = useState([
-        {
-            "id": "65b20b5a57bbacb3bffb2eec",
-            "name": "Computer Science",
-            "lectors": [
-                {
-                    "id": "65b20b5a57bbacb3bffb2ee9",
-                    "name": "Olga Tokar",
-                    "degree": "PROFESSOR"
-                },
-                {
-                    "id": "65b20b5a57bbacb3bffb2eea",
-                    "name": "Sergii Prokopenko",
-                    "degree": "ASSOCIATE_PROFESSOR"
-                }
-            ]
-        },
-        {
-            "id": "65b20b5a57bbacb3bffb2eed",
-            "name": "Mathematics",
-            "lectors": [
-                {
-                    "id": "65b20b5a57bbacb3bffb2eeb",
-                    "name": "Svitlana Kolisnechenko",
-                    "degree": "ASSISTANT"
-                }
-            ]
-        },
-        {
-            "id": "65b20b5a57bbacb3bffb2eed",
-            "name": "Phsy",
-            "lectors": [
-                {
-                    "id": "65b20b5a57bbacb3bffb2eeb",
-                    "name": "Svitlana Kolisnechenko",
-                    "degree": "ASSISTANT"
-                },
-                {
-                    "id": "65b20b5a57bbacb3bffb2eea",
-                    "name": "Sergii Prokopenko",
-                    "degree": "ASSOCIATE_PROFESSOR"
-                }
-            ]
-        }
-    ]);
+    const [departments, setDepartments] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
-    const updateLectorName = (lecturerId, newName) => {
-        const newDepartments = departments.map(department => {
-            const newLectors = department.lectors.map(lecturer => {
-                if (lecturer.id === lecturerId) {
-                    return { ...lecturer, name: newName };
-                }
-                return lecturer;
-            });
-            return { ...department, lectors: newLectors };
+    const fetchData = useCallback(() => {
+        setIsLoading(true);
+        axios.get('http://localhost:8080/department')
+            .then(response => {
+                setDepartments(response.data);
+                setIsLoading(false);
+            })
+            .catch(error => {
+                setIsLoading(true);
+                throw new Error(error.message);
         });
-        setDepartments(newDepartments);
+    }, [])
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData]);
+
+    const updateLectorName = (lectorId, newName) => {
+        setIsLoading(true);
+        axios.patch(`http://localhost:8080/lector/${lectorId}/change-name?newName=${newName}`)
+            .then(_ => {
+                fetchData();
+            })
+            .catch(error => {
+                setIsLoading(false);
+                throw new Error('Error changing lector name:' + error.message);
+            });
     };
 
     return (
         <div className="department-container">
+            {isLoading && <LoadingSpinner />}
             {departments.map(department => (
                 <DepartmentCard
                     key={department.id}
